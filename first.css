@@ -24,14 +24,39 @@ a {
 }
 
 /*导航栏*/
+.header
+{
+    background-color:rgb(252, 95, 192);
+
+}
+.header-wr {
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+.d2
+{
+    float: left;
+}
+.d2 .ico-h1 {
+    background-image: url(public.png);
+    background-position: 0 0;
+    height: 28px;
+    width: 88px;
+    display: inline-block;
+}
 .d1
 {
     
     list-style-type: none;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     overflow: hidden;
     background-color:rgb(252, 95, 192);
+    
+    width: 900px;
+    position: relative;
+    
 }  
 .d1 li{
     display: inline-block;
@@ -889,4 +914,3 @@ input, button {
     top: 20px;
     background: url(页脚.png) 0 -30px no-repeat;
 }
-
