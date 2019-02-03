@@ -1,19 +1,17 @@
-// Easy Responsive Tabs Plugin
-// Author: Samson.Onna <Email : samson3d@gmail.com>
 (function ($) {
     $.fn.extend({
         easyResponsiveTabs: function (options) {
-            //Set the default values, use comma to separate the settings, example:
+            //设置默认值，使用逗号分隔设置，例如：
             var defaults = {
                 type: 'default', //default, vertical, accordion;
                 width: 'auto',
                 fit: true
             }
-            //Variables
+            //变量
             var options = $.extend(defaults, options);            
             var opt = options, jtype = opt.type, jfit = opt.fit, jwidth = opt.width, vtabs = 'vertical', accord = 'accordion';
 
-            //Main function
+            //主函数
             this.each(function () {
                 var $respTabs = $(this);
                 $respTabs.find('ul.resp-tabs-list li').addClass('resp-tab-item');
@@ -24,7 +22,7 @@
 
                 $respTabs.find('.resp-tabs-container > div').addClass('resp-tab-content');
                 jtab_options();
-                //Properties Function
+                //属性函数
                 function jtab_options() {
                     if (jtype == vtabs) {
                         $respTabs.addClass('resp-vtabs');
@@ -38,7 +36,7 @@
                     }
                 }
 
-                //Assigning the h2 markup
+                //分配的h2标记
                 var $tabItemh2;
                 $respTabs.find('.resp-tab-content').before("<h2 class='resp-accordion' role='tab'><span class='resp-arrow'></span></h2>");
 
@@ -51,7 +49,7 @@
                     itemCount++;
                 });
 
-                //Assigning the 'aria-controls' to Tab items
+                //将“aria-controls”分配给选项卡项
                 var count = 0,
                     $tabContent;
                 $respTabs.find('.resp-tab-item').each(function () {
@@ -59,12 +57,12 @@
                     $tabItem.attr('aria-controls', 'tab_item-' + (count));
                     $tabItem.attr('role', 'tab');
 
-                    //First active tab                   
+                    //第一个活动选项卡                 
                     $respTabs.find('.resp-tab-item').first().addClass('resp-tab-active');
                     $respTabs.find('.resp-accordion').first().addClass('resp-tab-active');
                     $respTabs.find('.resp-tab-content').first().addClass('resp-tab-content-active').attr('style', 'display:block');
 
-                    //Assigning the 'aria-labelledby' attr to tab-content
+                    //将“aria-labelledby”属性分配给选项卡内容
                     var tabcount = 0;
                     $respTabs.find('.resp-tab-content').each(function () {
                         $tabContent = $(this);
@@ -74,7 +72,7 @@
                     count++;
                 });
 
-                //Tab Click action function
+                //选项卡点击动作功能
                 $respTabs.find("[role=tab]").each(function () {
                     var $currentTab = $(this);
                     $currentTab.click(function () {
@@ -99,7 +97,7 @@
                             $respTabs.find('.resp-tab-content[aria-labelledby = ' + $tabAria + ']').addClass('resp-tab-content-active').attr('style', 'display:block');
                         }
                     });
-                    //Window resize function                   
+                    //窗口大小调整功能                 
                     $(window).resize(function () {
                         $respTabs.find('.resp-accordion-closed').removeAttr('style');
                     });
